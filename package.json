@@ -1,0 +1,38 @@
+{
+  "name": "testistic-repository",
+  "version": "1.0.0",
+  "author": "Phil <phil@xceptionale.com>",
+  "license": "MIT",
+  "description": "Testistic Base functionality",
+  "main": "src/index.js",
+  "keywords": [
+    "testitic"
+  ],
+  "scripts": {
+    "prebuild": "npm run lint",
+    "lint": "eslint src",
+    "lint:tests": "eslint tests",
+    "start": "npm run test:watch",
+    "test:watch": "nodemon -w node_modules/testistic-base --watch src --watch tests --exec 'npm run test && npm run lint'",
+    "test": "DEBUG=testistic-repositor,kafka-client mocha -r reify -r source-map-support/register tests/*.spec.js",
+    "prepublishOnly": "npm run build && npm test",
+    "test:browser": "npm run build && opn http://127.0.0.1:8080/tests/ && serve -p 8080"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^5.0.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-config-standard": "^12.0.0-alpha.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.17.5",
+    "opn-cli": "^3.1.0",
+    "reify": "^0.16.2",
+    "serve": "^9.1.0",
+    "source-map-support": "^0.5.6"
+  },
+  "dependencies": {}
+}
