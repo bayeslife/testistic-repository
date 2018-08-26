@@ -1,5 +1,5 @@
 import Repository from '../src/index.js'
-import Testistic from 'testistic-base'
+import Testistic from 'testistic-model'
 
 import { assert } from 'chai'
 
