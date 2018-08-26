@@ -14,6 +14,7 @@ before_script:
 
 stages:
  - build
+ - publish
 
 build:lint:
   stage: build
@@ -26,13 +27,8 @@ build:test:
   script:
     - npm test
 
-# Publish tagged versions to npm
-#publish:
-#  stage: deploy
-#  only:
-#    - tags
-#    - triggers
-#  script:
-#    - npm run build
-#    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
-#    - npm publish
+publish:
+  stage: publish
+  script:
+    - echo '//registry.npmjs.org/:_authToken=8bbcfb25-274d-4a83-a4c0-ac5025756f31'> ~/.npmrc
+    - npm publish
