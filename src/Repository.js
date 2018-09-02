@@ -49,7 +49,7 @@ function create (kafkaUrl) {
       var produced = await client.produceTopicKeyValue(testrun.epic, testrun, topic)
       return produced
     },
-    getProjectTestRuns: async function (project) {  
+    getProjectTestRuns: async function (project) {
       var topic = config.topic_projectTestruns + project
       debug('Getting from topic:', topic)
       var testruns = await client.batchConsume('client', topic, 100/* batch size */)

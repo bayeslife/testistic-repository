@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "prebuild": "npm run lint",
-    "lint": "eslint src",
+    "lint": "eslint --fix src",
     "lint:tests": "eslint tests",
     "start": "npm run test:watch",
     "test:watch": "nodemon -w node_modules/testistic-model --watch src --watch tests --exec 'npm run test && npm run lint'",
