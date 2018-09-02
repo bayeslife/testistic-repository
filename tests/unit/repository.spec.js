@@ -1,8 +1,8 @@
-import Repository from '../../src/index.js'
+// import Repository from '../../src/index.js'
 
 import { assert } from 'chai'
 
-describe('Giveny', function () {
+describe('Given', function () {
   describe('When ', function () {
     it('Then ', async function () {
       assert(true)

@@ -37,7 +37,7 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      file: main,
+      file: "dist/lib.umd.js",
       name: 'lib',
       sourcemap: true,
       format: 'umd',
@@ -65,27 +65,27 @@ export default [
   //     //json(jsonconfig)
   //   ]
   // }, 
-  // {
-  //   input: 'tests/**/*.spec.js',
-  //   output: {
-  //     file: 'dist/tests.bundle.js',
-  //     name: 'lib',
-  //     sourcemap: true,
-  //     format: 'iife',
-  //     banner,
-  //     globals: {
-  //       chai: 'chai',
-  //       it: 'it',
-  //       describe: 'describe'
-  //     }
-  //   },
-  //   external: ['chai', 'it', 'describe'],
-  //   plugins: [
-  //     resolve(),
-  //     commonjs(),
-  //     multiEntry(),
-  //     buble(),
-  //     //json(jsonconfig)
-  //   ]
-  // }
+  {
+    input: 'tests/unit/*.spec.js',
+    output: {
+      file: 'dist/tests.bundle.js',
+      name: 'lib',
+      sourcemap: true,
+      format: 'iife',
+      banner,
+      globals: {
+        chai: 'chai',
+        it: 'it',
+        describe: 'describe'
+      }
+    },
+    external: ['chai', 'it', 'describe'],
+    plugins: [
+      resolve(),
+      commonjs(),
+      multiEntry(),
+      buble(),
+      //json(jsonconfig)
+    ]
+  }
 ]
