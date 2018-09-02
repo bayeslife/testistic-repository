@@ -33,5 +33,18 @@ describe('Given a Repository', function () {
         assert(testruns)
       })
     })
+    describe('When produce a project testrun', function () {
+      var testrun = Testistic.TestRun.createFromTemplate()
+      it('Then a testrun is produced', async function () {
+        var produced = await repository.produceProjectTestRun(testrun)
+        debug('Produce', produced)
+        assert(produced)
+      })
+      it('Then getting projectTestruns returns the project testrun', async function () {
+        var testruns = await repository.getProjectTestRuns(testrun.project)
+        debug('testruns', testruns.length)
+        assert(testruns)
+      })
+    })
   })
 })

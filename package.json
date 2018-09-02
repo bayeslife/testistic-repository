@@ -1,6 +1,6 @@
 {
   "name": "testistic-repository",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Phil <phil@xceptionale.com>",
   "license": "MIT",
   "description": "Testistic Base functionality",
@@ -15,7 +15,7 @@
     "start": "npm run test:watch",
     "test:watch": "nodemon -w node_modules/testistic-model --watch src --watch tests --exec 'npm run test && npm run lint'",
     "test": "DEBUG=testistic-repositor,kafka-client mocha -r reify -r source-map-support/register tests/unit/*.spec.js",
-    "integration": "DEBUG=testistic-repositor,kafka-client mocha -r reify -r source-map-support/register tests/integration/*.spec.js",
+    "integration": "DEBUG=testistic-repositor mocha -r reify -r source-map-support/register tests/integration/*.spec.js",
     "test:browser": "npm run build && opn http://127.0.0.1:8080/tests/ && serve -p 8080"
   },
   "devDependencies": {

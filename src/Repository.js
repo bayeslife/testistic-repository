@@ -37,9 +37,22 @@ function create (kafkaUrl) {
       return testruns
     },
     getTestRuns: async function () {
-      var topicTestRuns = config.topic_testruns
-      debug('Getting from topic:', topicTestRuns)
-      var testruns = await client.batchConsume('client', topicTestRuns, 10/* batch size */)
+      var topic = config.topic_testruns
+      debug('Getting from topic:', topic)
+      var testruns = await client.batchConsume('client', topic, 10/* batch size */)
+      return testruns
+    },
+
+    produceProjectTestRun: async function (testrun) {
+      var topic = config.topic_projectTestruns + testrun.project
+      debug(topic)
+      var produced = await client.produceTopicKeyValue(testrun.epic, testrun, topic)
+      return produced
+    },
+    getProjectTestRuns: async function (project) {  
+      var topic = config.topic_projectTestruns + project
+      debug('Getting from topic:', topic)
+      var testruns = await client.batchConsume('client', topic, 100/* batch size */)
       return testruns
     }
   }
