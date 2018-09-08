@@ -6,5 +6,7 @@ export default {
 
     topic_projectTestruns: 'testistic.projecttestruns.', // Topic where project test runs are created
 
-    topic_epics: 'testistic.epics'
+    topic_epics: 'testistic.epics',
+
+    kafkaUrl: process.env.KAFKASERVICE || '192.168.56.10:9092'
 }

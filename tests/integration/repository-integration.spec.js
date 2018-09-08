@@ -6,14 +6,12 @@ import { assert } from 'chai'
 
 var debug = require('debug')('kafka-client')
 
-const kafkahost = process.env.KAFKA_HOST + ':9092' || '192.168.56.10:9092'
-
 var topic = `topic-delete-${uuid()}`
 var group = `group-${uuid()}`
 
 describe('Given a Repository', function () {
   describe('When the respository is connected', function () {
-    var repository = Repository.create(kafkahost)
+    var repository = Repository.create()
     // after(function () {
     //   repository.close()
     // })

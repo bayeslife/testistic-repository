@@ -6,7 +6,8 @@ const debug = Debug('testistic-repository')
 
 var { kafkaclient } = require('kafka-client')
 
-function create (kafkaUrl) {
+function create (options) {
+   var kafkaUrl = options ? options.kafkaUrl : config.kafkaUrl
   assert.ok(kafkaUrl, 'kafka connect url needs to be defined but is:' + kafkaUrl)
   debug('Connecting to kafka on', kafkaUrl)
   var client = kafkaclient(kafkaUrl)

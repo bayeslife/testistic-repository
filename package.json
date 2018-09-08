@@ -1,6 +1,6 @@
 {
   "name": "testistic-repository",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "Phil <phil@xceptionale.com>",
   "license": "MIT",
   "description": "Testistic Base functionality",
@@ -42,7 +42,7 @@
     "rollup-plugin-node-resolve": "^3.3.0"
   },
   "dependencies": {
-    "kafka-client": "^2.0.0",
+    "kafka-client": "latest",
     "testistic-model": "latest"
   }
 }
