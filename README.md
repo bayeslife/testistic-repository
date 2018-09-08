@@ -9,6 +9,13 @@ The repository supports
 - producing and getting Projects,TestRuns,ProjectTestRun
 - create a Consumer
 
+## Configuration
+
+The kafka endpoint (host and port) can be provided 
+- directly to the Repository constructor 
+- through the KAFKASERVICE environment variable
+- or otherwise a default
+
 ## Thoughts
 The UI needs to query for a batch of test results for each Epic.  
 The query group can be the userid for the user who is doing the querying.
