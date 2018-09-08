@@ -4,12 +4,12 @@ import Debug from 'debug'
 import assert from 'assert'
 const debug = Debug('testistic-repository')
 
-var k2client = require('kafka-client')
+var { kafkaclient } = require('kafka-client')
 
 function create (kafkaUrl) {
   assert.ok(kafkaUrl, 'kafka connect url needs to be defined but is:' + kafkaUrl)
   debug('Connecting to kafka on', kafkaUrl)
-  var client = k2client(kafkaUrl)
+  var client = kafkaclient(kafkaUrl)
   return {
     // close: function () {
     //   client.close()
