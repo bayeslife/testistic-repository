@@ -59,7 +59,7 @@ describe('Given a Repository', function () {
       })
     })
 
-    describe.only('When create a consumer', function () {
+    describe('When create a consumer', function () {
       var consumer
       before(async function () {
         consumer = await repository.createConsumer(group, topic, (message) => console.log(message))

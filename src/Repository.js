@@ -8,13 +8,16 @@ var { kafkaclient } = require('kafka-client')
 
 function getTestRunTopic () {
  return config.topic_testruns
-} 
+}
+
 function getProjectTopic () {
   return config.topic_projects
 }
+
 function getProjectTestRunTopicFromTestRun (testrun) {
   return config.topic_projectTestruns + testrun.project
 }
+
 function getProjectTestRunTopicFromProject (project) {
   return config.topic_projectTestruns + project
 }
@@ -32,10 +35,14 @@ function create (options) {
   assert.ok(kafkaUrl, 'kafka connect url needs to be defined but is:' + kafkaUrl)
   debug('Connecting to kafka on', kafkaUrl)
   var client = kafkaclient(kafkaUrl)
-  return {
+  var rep = {
     // close: function () {
     //   client.close()
     // },
+    setup: async function () {
+      await this.createTopic(getTestRunTopic())
+      await this.createTopic(getProjectTopic())
+    },
     getTopics: async function () {
       var result = await client.getTopics()
       return result
@@ -92,6 +99,8 @@ function create (options) {
       return subscriber
     }
   }
+  rep.setup()
+  return rep
 }
 
 export default {
