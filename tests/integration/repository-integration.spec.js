@@ -31,7 +31,7 @@ describe('Given a Repository', function () {
       })
     })
 
-    describe('When produce a testrun', function () {
+    describe.only('When produce a testrun', function () {
       var testrun = Testistic.TestRun.createFromTemplate()
       it('Then a testrun is produced', async function () {
         var produced = await repository.produceTestRun(testrun)

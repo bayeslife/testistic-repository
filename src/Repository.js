@@ -31,8 +31,8 @@ function schema () {
   }
 }
 function create (options) {
-   var kafkaUrl = options ? options.kafkaUrl : config.kafkaUrl
-  assert.ok(kafkaUrl, 'kafka connect url needs to be defined but is:' + kafkaUrl)
+   var kafkaUrl = options.kafkaUrl || config.kafkaUrl
+  assert.ok(kafkaUrl, 'kafka connect url needs to be defined by KAFKASERVICE environment but is:' + kafkaUrl)
   debug('Connecting to kafka on', kafkaUrl)
   var client = kafkaclient(kafkaUrl)
   var rep = {
@@ -62,7 +62,7 @@ function create (options) {
     getProjects: async function () {
       var topic = getProjectTopic()
       debug(`Getting from topic ${topic}`)
-      var projects = await client.selectAll('client', topic)
+      var projects = await client.selectAll(topic)
       return projects
     },
 
