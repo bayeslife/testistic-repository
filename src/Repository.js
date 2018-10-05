@@ -31,7 +31,8 @@ function schema () {
   }
 }
 function create (options) {
-   var kafkaUrl = options.kafkaUrl || config.kafkaUrl
+   var kafkaUrl = options ? options.kafkaUrl : config.kafkaUrl
+  debug(`KafkaUrl: ${kafkaUrl}`)
   assert.ok(kafkaUrl, 'kafka connect url needs to be defined by KAFKASERVICE environment but is:' + kafkaUrl)
   debug('Connecting to kafka on', kafkaUrl)
   var client = kafkaclient(kafkaUrl)
@@ -43,6 +44,16 @@ function create (options) {
       await this.createTopic(getTestRunTopic())
       await this.createTopic(getProjectTopic())
     },
+
+    produce: async function (entityType, entity) {
+      var topic = entityType
+      assert(entityType, 'EntityType needs to be defined')
+      assert(entity, 'Entity needs to be defined')
+      assert(entity.name, 'Entity Name needs to be defined')
+      var produced = await client.produceTopicKeyValue(entity.name, entity, topic)
+      return produced
+    },
+
     getTopics: async function () {
       var result = await client.getTopics()
       return result

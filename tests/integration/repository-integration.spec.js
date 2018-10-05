@@ -31,7 +31,16 @@ describe('Given a Repository', function () {
       })
     })
 
-    describe.only('When produce a testrun', function () {
+    describe.only('When produce an entity', function () {
+      var entity = {name: 'aname', 'type': 'IntegrationTest_Entity_Type', 'value': 'avalue'}
+      it('Then a entity is produced', async function () {
+        var produced = await repository.produce(entity.type, entity)
+        debug('Produce', produced)
+        assert(produced)
+      })
+    })
+
+    describe('When produce a testrun', function () {
       var testrun = Testistic.TestRun.createFromTemplate()
       it('Then a testrun is produced', async function () {
         var produced = await repository.produceTestRun(testrun)
