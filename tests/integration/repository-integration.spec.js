@@ -31,11 +31,16 @@ describe('Given a Repository', function () {
       })
     })
 
-    describe.only('When produce an entity', function () {
-      var entity = {'type': 'IntegrationTest_Entity_Type', 'value': 'avalue'}
+    describe('When produce an entity', function () {
+      var entity = {'type': 'IntegrationTest_Entity_Type', 'value': 'avalue5'}
       it('Then a entity is produced', async function () {
         var produced = await repository.produce(entity.type, entity)
         debug('Produce', produced)
+        assert(produced)
+      })
+      it('Then get returns entities', async function () {
+        var produced = await repository.get(entity.type, 5)
+        debug(`Produced ${produced.length}`, produced)
         assert(produced)
       })
     })
