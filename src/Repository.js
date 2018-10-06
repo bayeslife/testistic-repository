@@ -50,7 +50,7 @@ function create (options) {
       assert(entityType, 'EntityType needs to be defined')
       assert(entity, 'Entity needs to be defined')
       var produced = await client.produceTopicKeyValue('', entity, topic)
-      return produced
+      return entity
     },
 
     getTopics: async function () {
