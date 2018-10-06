@@ -49,8 +49,7 @@ function create (options) {
       var topic = entityType
       assert(entityType, 'EntityType needs to be defined')
       assert(entity, 'Entity needs to be defined')
-      assert(entity.name, 'Entity Name needs to be defined')
-      var produced = await client.produceTopicKeyValue(entity.name, entity, topic)
+      var produced = await client.produceTopicKeyValue('', entity, topic)
       return produced
     },
 

@@ -32,7 +32,7 @@ describe('Given a Repository', function () {
     })
 
     describe.only('When produce an entity', function () {
-      var entity = {name: 'aname', 'type': 'IntegrationTest_Entity_Type', 'value': 'avalue'}
+      var entity = {'type': 'IntegrationTest_Entity_Type', 'value': 'avalue'}
       it('Then a entity is produced', async function () {
         var produced = await repository.produce(entity.type, entity)
         debug('Produce', produced)
