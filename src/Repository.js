@@ -49,7 +49,7 @@ function create (options) {
       var topic = entityType
       assert(entityType, 'EntityType needs to be defined')
       assert(entity, 'Entity needs to be defined')
-      var produced = await client.produceTopicKeyValue( 'entity', entity, topic)
+      var produced = await client.produceTopicKeyValue( '0', entity, topic)
       return entity
     },
 
@@ -57,7 +57,7 @@ function create (options) {
       var topic = entityType
       assert(entityType, 'EntityType needs to be provided')
       assert(numberToRetrieve, 'EntityType needs to be provided')
-      var entities = await client.batchConsume('client2', topic, numberToRetrieve)
+      var entities = await client.batchConsume('client', topic, numberToRetrieve)
       return entities
     },
 
