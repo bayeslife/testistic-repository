@@ -6,6 +6,18 @@ const debug = Debug('testistic-repository')
 
 var { kafkaclient } = require('kafka-client')
 
+function getStatisticsAll () {
+  return config.topic_statistics_all
+}
+
+function getStatisticsProject (testrun) {
+  return config.topic_statistics_project + testrun.project
+}
+
+function getStatisticsEpic (testrun) {
+  return config.topic_statistics_epic + testrun.epic
+}
+
 function getTestRunTopic () {
  return config.topic_testruns
 }
@@ -24,6 +36,10 @@ function getProjectTestRunTopicFromProject (project) {
 
 function schema () {
   return {
+    getStatisticsAll,
+    getStatisticsProject,
+    getStatisticsEpic,
+
     getTestRunTopic,
     getProjectTopic,
     getProjectTestRunTopicFromTestRun,
@@ -49,7 +65,7 @@ function create (options) {
       var topic = entityType
       assert(entityType, 'EntityType needs to be defined')
       assert(entity, 'Entity needs to be defined')
-      var produced = await client.produceTopicKeyValue( '0', entity, topic)
+      var produced = await client.produceTopicKeyValue('0', entity, topic)
       return entity
     },
 

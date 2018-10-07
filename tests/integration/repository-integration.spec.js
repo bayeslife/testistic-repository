@@ -32,7 +32,7 @@ describe('Given a Repository', function () {
     })
 
     describe('When produce an entity', function () {
-      var entity = {'type': 'pullrequests', 'value': 'avalue5'}
+      var entity = { 'type': 'pullrequests', 'value': 'avalue5' }
       it('Then a entity is produced', async function () {
         var produced = await repository.produce(entity.type, entity)
         debug('Produce', produced)

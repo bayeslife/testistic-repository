@@ -1,5 +1,9 @@
 #  Testisic Repository Release Notes
 
+## 1.2.0
+
+Add schema for statistics
+
 ## 1.1.0
 
 Add the produce method to store arbitrary entity into kafka.
