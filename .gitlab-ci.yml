@@ -30,5 +30,5 @@ build:test:
 publish:
   stage: publish
   script:
-    - echo '//registry.npmjs.org/:_authToken=8bbcfb25-274d-4a83-a4c0-ac5025756f31'> ~/.npmrc
+    - echo '//registry.npmjs.org/:_authToken=abaff007-2dba-42e1-b83d-19ac19f0eb06'> ~/.npmrc
     - npm publish
