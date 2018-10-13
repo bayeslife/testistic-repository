@@ -77,6 +77,13 @@ function create (options) {
       return entities
     },
 
+    getLatest: async function (entityType) {
+      var topic = entityType
+      assert(entityType, 'EntityType needs to be provided')
+      var entities = await client.batchConsume('client', topic, 1)
+      return entities[0]
+    },
+
     getTopics: async function () {
       var result = await client.getTopics()
       return result
