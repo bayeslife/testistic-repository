@@ -73,6 +73,14 @@ describe('Given a Repository', function () {
       })
     })
 
+    describe('When get global statistics', function () {
+      it('Then a testrun is produced', async function () {
+        var produced = await repository.get( Repository.schema().getStatisticsAll())
+        debug('Produce', produced)
+        assert(produced)
+      })
+    })
+
     describe('When create a consumer', function () {
       var consumer
       before(async function () {

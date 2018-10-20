@@ -3,6 +3,7 @@
 ## 1.2.0
 
 Add schema for statistics
+Now able to retrieve 'count' number of messages
 
 ## 1.1.0
 
