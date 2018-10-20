@@ -15,7 +15,7 @@ function getStatisticsProject (testrun) {
 }
 
 function getStatisticsEpic (testrun) {
-  return config.topic_statistic_epic + + testrun.project + "." + testrun.epic
+  return config.topic_statistic_epic + +testrun.project + '.' + testrun.epic
 }
 
 function getTestRunTopic () {
