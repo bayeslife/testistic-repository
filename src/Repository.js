@@ -81,7 +81,7 @@ function create (options) {
       var topic = entityType
       assert(entityType, 'EntityType needs to be provided')
       var entities = await client.batchConsume('client', topic, 1)
-      return entities[0]
+      return entities ? entities[0] : null
     },
 
     getTopics: async function () {
