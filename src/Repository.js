@@ -11,11 +11,11 @@ function getStatisticsAll () {
 }
 
 function getStatisticsProject (testrun) {
-  return config.topic_statistics_project + testrun.project
+  return config.topic_statistic_project + testrun.project + '.all'
 }
 
 function getStatisticsEpic (testrun) {
-  return config.topic_statistic_epic + +testrun.project + '.' + testrun.epic
+  return config.topic_statistic_epic + testrun.project + '.' + testrun.epic
 }
 
 function getTestRunTopic () {
@@ -27,11 +27,15 @@ function getProjectTopic () {
 }
 
 function getProjectTestRunTopicFromTestRun (testrun) {
-  return config.topic_projectTestruns + testrun.project
+  return config.topic_projectTestruns + testrun.project + '.all'
+}
+
+function getEpicTestRunTopicFromTestRun (testrun) {
+  return config.topic_projectTestruns + testrun.project + '.' + testrun.epic
 }
 
 function getProjectTestRunTopicFromProject (project) {
-  return config.topic_projectTestruns + project
+  return config.topic_projectTestruns + project + '.all'
 }
 
 function schema () {
@@ -43,6 +47,8 @@ function schema () {
     getTestRunTopic,
     getProjectTopic,
     getProjectTestRunTopicFromTestRun,
+    getEpicTestRunTopicFromTestRun,
+
     getProjectTestRunTopicFromProject
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "testistic-repository",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "author": "Phil <phil@xceptionale.com>",
   "license": "MIT",
   "description": "Testistic Base functionality",
@@ -14,8 +14,8 @@
     "lint": "eslint --fix src tests",
     "lint:tests": "eslint tests",
     "start": "npm run test:watch",
-    "test:watch": "nodemon -w node_modules/testistic-model --watch src --watch tests --exec 'npm run test && npm run lint'",
-    "test": "DEBUG=testistic-repositor,kafka-client mocha -r reify -r source-map-support/register 'src/**/*.spec.js'",
+    "test:watch": "nodemon -w node_modules/testistic-model --watch src --watch tests --exec 'npm run lint && npm run test && npm run build'",
+    "test": "DEBUG=none mocha -r reify -r source-map-support/register 'src/**/*.spec.js'",
     "integration": "DEBUG=testistic-repository,kafka-client mocha -r reify -r source-map-support/register 'tests/integration/*.spec.js'",
     "prepublishOnly": "npm run build && npm test",
     "test:browser": "npm run build && opn http://127.0.0.1:8080/tests/ && serve -p 8080"

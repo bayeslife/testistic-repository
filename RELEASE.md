@@ -5,6 +5,7 @@
 Add schema for statistics
 Now able to retrieve 'count' number of messages
 Resolve issue with getting from non-existing topic
+Changed schema for all topics
 
 ## 1.1.0
 

@@ -85,7 +85,7 @@ describe('Given a Repository', function () {
       it('Then a testrun is produced', async function () {
         var msg = await repository.getLatest(`topic-delete-${uuid()}`)
         debug('msg', msg)
-        assert.equal(null,msg)
+        assert.equal(null, msg)
       })
     })
 
