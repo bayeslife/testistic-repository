@@ -75,11 +75,11 @@ function create (options) {
       return entity
     },
 
-    get: async function (entityType, numberToRetrieve = 100) {
+    get: async function (entityType, numberToRetrieve = 100, offset = 0) {
       var topic = entityType
       assert(entityType, 'EntityType needs to be provided')
       assert(numberToRetrieve, 'EntityType needs to be provided')
-      var entities = await client.batchConsume('client', topic, numberToRetrieve)
+      var entities = await client.batchConsume('client', topic, numberToRetrieve, offset)
       return entities
     },
 
