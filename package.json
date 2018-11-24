@@ -1,9 +1,9 @@
 {
   "name": "testistic-repository",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "author": "Phil <phil@xceptionale.com>",
   "license": "MIT",
-  "description": "Testistic Base functionality",
+  "description": "Storage of Testistic Model into kafka queues",
   "main": "src/index.js",
   "keywords": [
     "testitic"
